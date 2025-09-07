@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Diabetes Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/animated-bg.css">
+    <style>
+        .welcome-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px rgba(56,189,248,0.15);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .get-started-btn {
+            font-size: 1.3rem;
+            padding: 0.75rem 2.5rem;
+            border-radius: 2rem;
+            background: linear-gradient(90deg, #2563eb 60%, #38bdf8 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 2px 8px rgba(56,189,248,0.15);
+            transition: background 0.3s, transform 0.2s;
+        }
+        .get-started-btn:hover {
+            background: linear-gradient(90deg, #1e40af 60%, #0ea5e9 100%);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header class="w-100 py-3 px-4 bg-white shadow-sm position-fixed top-0 start-0" style="z-index:10;">
+        <div class="container-fluid d-flex align-items-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/2966/2966483.png" alt="Logo" width="40" class="me-2" style="filter: drop-shadow(0 2px 8px #38bdf8);">
+            <span class="fs-3 fw-bold text-primary" style="letter-spacing:2px;">BetaPredict</span>
+        </div>
+    </header>
+    <div style="height:70px;"></div>
+    <div class="animated-bg">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+        <div class="circle circle4"></div>
+    </div>
+    <div class="container py-5 d-flex align-items-center justify-content-center" style="min-height: 90vh; position:relative; z-index:1;">
+        <div class="welcome-card mx-auto mb-4">
+            <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="Friendly Avatar" width="90" class="mb-3" style="border-radius:50%; box-shadow:0 2px 12px #38bdf8;">
+            <h1 class="fw-bold mb-3 text-primary" style="letter-spacing:1px;">Hi, I'm BetaPredict!</h1>
+            <p class="lead mb-4" style="color:#334155;">I'm here to help you understand your diabetes risk.<br>
+            <span style="font-size:1.1rem;">Just answer a few simple questions and I'll give you a personalized prediction.<br>
+            <span style="color:#2563eb;">Your health journey matters, and I'm here to support you!</span></span></p>
+            <div class="d-flex justify-content-center gap-3 mt-3">
+                <a href="/predict" class="get-started-btn" style="font-size:1.1rem;">Get Started</a>
+                <button type="button" class="btn btn-info px-4 py-2 fw-bold" data-bs-toggle="modal" data-bs-target="#aboutModal" style="border-radius:2rem; font-size:1.1rem; box-shadow:0 2px 8px rgba(56,189,248,0.10);">
+                    About the Dataset
+                </button>
+            </div>
+        </div>
+    <!-- Modal moved to end of body for proper Bootstrap behavior -->
+    </div>
+    <footer class="w-100 text-center py-4 mt-5 shadow-sm" style="background: linear-gradient(90deg, #e0e7ff 60%, #f8fafc 100%); border-top-left-radius:1.5rem; border-top-right-radius:1.5rem; position:relative; z-index:10;">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
+            <span class="fw-bold" style="font-size:1.1rem; color:#2563eb;">Developed by Arpit Jain</span>
+            <a href="https://www.linkedin.com/" target="_blank" class="ms-2 me-2" title="LinkedIn" style="display:inline-block;">
+                <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="LinkedIn" width="32" style="vertical-align:middle; border-radius:8px; box-shadow:0 2px 8px #38bdf8;">
+            </a>
+            <a href="https://github.com/" target="_blank" title="GitHub" style="display:inline-block;">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" width="32" style="vertical-align:middle; border-radius:8px; box-shadow:0 2px 8px #38bdf8;">
+            </a>
+        </div>
+    </footer>
+
+    <!-- Modal markup moved here for proper Bootstrap behavior -->
+    <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="true" style="z-index:2000;">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content" style="border-radius:1rem;">
+                <div class="modal-header bg-primary text-white" style="border-top-left-radius:1rem; border-top-right-radius:1rem;">
+                    <h2 class="modal-title fw-bold" id="aboutModalLabel">About the Pima Indian Diabetes Dataset</h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-start">
+                    <p>The Pima Indian Diabetes Dataset was collected by the National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK). It focuses exclusively on female patients of Pima Indian heritage, aged 21 years and older, a population known to have a significantly higher prevalence of Type 2 Diabetes.</p>
+                    <p>A unique feature of this dataset is the inclusion of the “Pregnancies” attribute, which is relevant only for women. Pregnancy-related diabetes (gestational diabetes) is a strong predictor of developing Type 2 diabetes later in life, making it a critical variable in assessing long-term risk.</p>
+                    <h5 class="mt-3 fw-bold">Why This Dataset is Special:</h5>
+                    <ul class="mb-3">
+                        <li><strong>Gender-specific:</strong> The model trained on this dataset applies only to women and should not be generalized to men without additional data.</li>
+                        <li><strong>Population-specific:</strong> Since it’s limited to Pima Indians, applying it to other populations may reduce predictive reliability.</li>
+                        <li><strong>Medically relevant features:</strong> Each feature (BMI, insulin levels, glucose concentration, blood pressure, pregnancies, age, etc.) has a direct clinical link to diabetes risk, ensuring strong domain relevance.</li>
+                    </ul>
+                    <h5 class="mt-3 fw-bold">Implications for Modeling:</h5>
+                    <ul>
+                        <li>Models built on this dataset predict diabetes risk in women only.</li>
+                        <li>Pregnancies is a meaningful risk factor, particularly in relation to gestational diabetes.</li>
+                        <li>Domain transfer should be done cautiously — using this model for men or non-Pima populations could lead to invalid predictions.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

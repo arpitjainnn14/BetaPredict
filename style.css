@@ -1,0 +1,26 @@
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+}
+.card {
+    border-radius: 1rem;
+}
+.card-header {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+.card-body {
+    background: linear-gradient(135deg, #f8fafc 60%, #e0e7ff 100%);
+}
+.btn-primary {
+    background: linear-gradient(90deg, #2563eb 60%, #38bdf8 100%);
+    border: none;
+}
+.btn-primary:hover {
+    background: linear-gradient(90deg, #1e40af 60%, #0ea5e9 100%);
+}
+.alert-info {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #f0fdfa 60%, #a7f3d0 100%);
+    color: #0f766e;
+}

@@ -1,0 +1,26 @@
+body {
+    background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+.animated-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: float 12s infinite ease-in-out;
+}
+.circle1 { width: 200px; height: 200px; background: #38bdf8; left: 10vw; top: 10vh; animation-delay: 0s; }
+.circle2 { width: 300px; height: 300px; background: #a7f3d0; left: 70vw; top: 20vh; animation-delay: 2s; }
+.circle3 { width: 150px; height: 150px; background: #f0fdfa; left: 40vw; top: 70vh; animation-delay: 4s; }
+.circle4 { width: 100px; height: 100px; background: #2563eb; left: 80vw; top: 80vh; animation-delay: 6s; }
+@keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-40px) scale(1.1); }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BetaPredict{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/animated-bg.css">
+    {% block head %}{% endblock %}
+    <style>
+        .get-started-btn {
+            font-size: 1.3rem;
+            padding: 0.75rem 2.5rem;
+            border-radius: 2rem;
+            background: linear-gradient(90deg, #2563eb 60%, #38bdf8 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 2px 8px rgba(56,189,248,0.15);
+            transition: background 0.3s, transform 0.2s;
+        }
+        .get-started-btn:hover {
+            background: linear-gradient(90deg, #1e40af 60%, #0ea5e9 100%);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="w-100 py-3 px-4 bg-white shadow-sm position-fixed top-0 start-0" style="z-index:10;">
+        <div class="container-fluid d-flex align-items-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/2966/2966483.png" alt="Logo" width="40" class="me-2" style="filter: drop-shadow(0 2px 8px #38bdf8);">
+            <span class="fs-3 fw-bold text-primary" style="letter-spacing:2px;">BetaPredict</span>
+        </div>
+    </header>
+    <div style="height:70px;"></div>
+    {% block content %}{% endblock %}
+    <!-- Footer -->
+    <footer class="w-100 text-center py-4 mt-5 shadow-sm" style="background: linear-gradient(90deg, #e0e7ff 60%, #f8fafc 100%); border-top-left-radius:1.5rem; border-top-right-radius:1.5rem; position:relative; z-index:10;">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
+            <span class="fw-bold" style="font-size:1.1rem; color:#2563eb;">Developed by Arpit Jain</span>
+            <a href="https://www.linkedin.com/" target="_blank" class="ms-2 me-2" title="LinkedIn" style="display:inline-block;">
+                <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="LinkedIn" width="32" style="vertical-align:middle; border-radius:8px; box-shadow:0 2px 8px #38bdf8;">
+            </a>
+            <a href="https://github.com/" target="_blank" title="GitHub" style="display:inline-block;">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" width="32" style="vertical-align:middle; border-radius:8px; box-shadow:0 2px 8px #38bdf8;">
+            </a>
+        </div>
+    </footer>
+    {% block modal %}{% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

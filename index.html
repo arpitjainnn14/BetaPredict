@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/static/style.css">
+        <link rel="stylesheet" href="/static/animated-bg.css">
+        <style>
+            .card { box-shadow: 0 8px 32px rgba(56,189,248,0.15); }
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(56,189,248,0.3);
+                transform: scale(0);
+                animation: ripple 0.6s linear;
+                pointer-events: none;
+                width: 100px; height: 100px;
+                z-index: 2;
+            }
+            @keyframes ripple {
+                to { transform: scale(2); opacity: 0; }
+            }
+        </style>
+</head>
+<body>
+    <header class="w-100 py-3 px-4 bg-white shadow-sm position-fixed top-0 start-0" style="z-index:10;">
+        <div class="container-fluid d-flex align-items-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/2966/2966483.png" alt="Logo" width="40" class="me-2" style="filter: drop-shadow(0 2px 8px #38bdf8);">
+            <span class="fs-3 fw-bold text-primary" style="letter-spacing:2px;">BetaPredict</span>
+        </div>
+    </header>
+    <div style="height:70px;"></div>
+    <div class="animated-bg">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+        <div class="circle circle4"></div>
+    </div>
+    <div class="container py-5 position-relative" style="z-index:1;">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg p-3" style="background:rgba(255,255,255,0.95);">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h2 class="fw-bold" style="letter-spacing:1px;">Diabetes Prediction</h2>
+                        <p class="mb-0">Enter your health details below</p>
+                    </div>
+                    <div class="card-body">
+                        <form id="predictForm" method="post" action="/predict" autocomplete="off">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="pregnancies" class="form-label">Pregnancies</label>
+                                    <input type="number" class="form-control form-control-lg" name="pregnancies" required min="0" placeholder="e.g. 2">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="glucose" class="form-label">Glucose</label>
+                                    <input type="number" class="form-control form-control-lg" name="glucose" required min="0" placeholder="e.g. 120">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="bloodpressure" class="form-label">Blood Pressure</label>
+                                    <input type="number" class="form-control form-control-lg" name="bloodpressure" required min="0" placeholder="e.g. 70">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="skinthickness" class="form-label">Skin Thickness</label>
+                                    <input type="number" class="form-control form-control-lg" name="skinthickness" required min="0" placeholder="e.g. 20">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="insulin" class="form-label">Insulin</label>
+                                    <input type="number" class="form-control form-control-lg" name="insulin" required min="0" placeholder="e.g. 85">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="bmi" class="form-label">BMI</label>
+                                    <input type="number" step="0.1" class="form-control form-control-lg" name="bmi" required min="0" placeholder="e.g. 28.5">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="diabetespedigreefunction" class="form-label">Diabetes Pedigree Function</label>
+                                    <input type="number" step="0.01" class="form-control form-control-lg" name="diabetespedigreefunction" required min="0" placeholder="e.g. 0.45">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="age" class="form-label">Age</label>
+                                    <input type="number" class="form-control form-control-lg" name="age" required min="0" placeholder="e.g. 35">
+                                </div>
+                            </div>
+                            <div class="text-center mt-4 position-relative">
+                                <button type="submit" class="btn btn-primary btn-lg w-50 position-relative overflow-hidden">Predict</button>
+                            </div>
+                        </form>
+                        <div id="loading" class="text-center mt-3" style="display:none;">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="fw-bold">Predicting...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="w-100 bg-white text-center py-3 mt-5 shadow-sm" style="position:relative; z-index:10;">
+        <div class="container">
+            <span class="fw-bold">Developed by Arpit Jain</span>
+            <a href="https://www.linkedin.com/arpitjain2004/" target="_blank" class="ms-3 me-2" title="LinkedIn">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" width="28" style="vertical-align:middle;">
+            </a>
+            <a href="https://github.com/arpitjainnn14" target="_blank" title="GitHub">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="28" style="vertical-align:middle;">
+            </a>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/effects.js"></script>
+    <script>
+        const form = document.getElementById('predictForm');
+        const loading = document.getElementById('loading');
+        form.addEventListener('submit', function() {
+            loading.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
